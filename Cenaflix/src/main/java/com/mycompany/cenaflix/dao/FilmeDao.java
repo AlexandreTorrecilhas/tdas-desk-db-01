@@ -34,6 +34,7 @@ public class FilmeDao {
     }
     
     public void inserirFilme(){
+        this.limparValores();
         try{
             this.setStmt(insertFilme);
             this.setParametros();
@@ -75,5 +76,12 @@ public class FilmeDao {
         }catch(SQLException erroAoFecharConexao){
             JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão. Erro: " + erroAoFecharConexao.getMessage());
         }
+    }
+    
+    private void limparValores(){
+        this.nome = null;
+        this.dataLancamento = null;
+        this.dataSql = null;
+        this.genero = null;
     }
 }

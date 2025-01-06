@@ -24,40 +24,28 @@ public class FilmeDao {
     private PreparedStatement stmt;
     private ParaFilmeRecord parametroFilme;
     private Connection conexao;
-    private String nome;
     private LocalDate dataLancamento;
-    private Date dataSql;
-    private String genero;
 
     public FilmeDao(ParaFilmeRecord parametroFilme) {
         this.parametroFilme = parametroFilme;
     }
     
     public void inserirFilme(){
-        this.limparValores();
         try{
             this.setStmt(insertFilme);
-            this.setParametros();
-            this.stmt.setString(1, nome);
-            this.stmt.setDate(2, dataSql);
-            this.stmt.setString(3, this.genero);
             this.stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Filme adicionado com sucesso");
             this.fecharConexao();
-        }catch(SQLException erroAoInserirFilme){
+        }catch(SQLException | DateTimeParseException erroAoInserirFilme){
             JOptionPane.showMessageDialog(null, "Não foi possível inserir o valor. Erro: " + erroAoInserirFilme.getMessage());
         }
     }
     
-    private void setParametros(){
-        try{
-            this.nome = this.parametroFilme.getTxtNome().getText();
-            this.dataLancamento = LocalDate.parse(this.parametroFilme.getTxtDataLancamento().getText(), formatoData);
-            this.dataSql = Date.valueOf(dataLancamento);
-            this.genero = parametroFilme.getTxtGenero().getText();
-        }catch(DateTimeParseException erroNoFormatoDaData){
-            JOptionPane.showMessageDialog(null, "Por favor, informe a data no seguinte formato dd/mm/aaaa");
-        }
+    private void setStringSql() throws SQLException, DateTimeParseException{
+        this.dataLancamento = LocalDate.parse(this.parametroFilme.getTxtDataLancamento().getText(), formatoData);
+        this.stmt.setString(1, this.parametroFilme.getTxtNome().getText());
+        this.stmt.setDate(2, Date.valueOf(dataLancamento));
+        this.stmt.setString(3, this.parametroFilme.getTxtGenero().getText());
     }
     
     private void setStmt(String sql){
@@ -76,12 +64,5 @@ public class FilmeDao {
         }catch(SQLException erroAoFecharConexao){
             JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão. Erro: " + erroAoFecharConexao.getMessage());
         }
-    }
-    
-    private void limparValores(){
-        this.nome = null;
-        this.dataLancamento = null;
-        this.dataSql = null;
-        this.genero = null;
     }
 }

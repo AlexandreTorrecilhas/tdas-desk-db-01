@@ -1,6 +1,7 @@
 package com.mycompany.cenaflix.validacoes;
 
 //Pacotes JAVA util
+import java.util.Map;
 import java.util.LinkedHashMap;
 
 public class ValiParaFilme {
@@ -11,7 +12,25 @@ public class ValiParaFilme {
         this.setValiParaFilme();
     }
     
-    
+    public boolean validarValores(LinkedHashMap<String, String> valoresParaValidar){
+        for(Map.Entry<String, String> entry: valoresParaValidar.entrySet()){
+            String chave = entry.getKey();
+            String valorParaValidar = entry.getValue();
+            
+            if(validacao.containsKey(chave)){
+                String validador = validacao.get(chave);
+                if(!valorParaValidar.matches(validador)){
+                    return false;
+                }
+                else{
+                    return false;
+                }
+            }
+            
+        }
+        
+        return true;
+    }
     
     private void setValiParaFilme(){
         this.validacao.put("nomeFilme","^[\\w]+[\\s\\w]*$");

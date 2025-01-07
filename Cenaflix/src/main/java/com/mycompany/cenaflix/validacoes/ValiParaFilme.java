@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 public class ValiParaFilme {
     
     LinkedHashMap<String, String> validacao = new LinkedHashMap();
+    private final String[] mensagemErro = {"Por favor, inserir o nome do filme, Por favor, verificar se a data segue esse modelo "
+            + "dd/mm/aaaa", "Por favor, é necessário selecione um genero"};
+    
     
     public ValiParaFilme(){
         this.setValiParaFilme();

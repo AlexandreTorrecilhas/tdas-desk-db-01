@@ -71,14 +71,14 @@ public class JFrameCadastro extends javax.swing.JFrame {
 
         txtGenero.setEditable(false);
 
-        chkAcao.setText("Ação");
+        chkAcao.setText("Acao");
         chkAcao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chkAcaoItemStateChanged(evt);
             }
         });
 
-        chkComedia.setText("Comédia");
+        chkComedia.setText("Comedia");
         chkComedia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chkComediaItemStateChanged(evt);

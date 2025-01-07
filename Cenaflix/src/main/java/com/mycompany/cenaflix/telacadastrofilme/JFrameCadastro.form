@@ -227,7 +227,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkAcao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Acao"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chkAcaoItemStateChanged"/>
@@ -235,7 +235,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkComedia">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Com&#xe9;dia"/>
+            <Property name="text" type="java.lang.String" value="Comedia"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chkComediaItemStateChanged"/>

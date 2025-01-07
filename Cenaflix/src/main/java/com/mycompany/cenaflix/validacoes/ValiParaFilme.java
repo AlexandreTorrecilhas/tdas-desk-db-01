@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 //Pacotes JAVA util
 import java.util.Map;
 import java.util.LinkedHashMap;
+    //Pacotes Regex
+    import java.util.regex.Pattern;
 
 public class ValiParaFilme {
     
@@ -30,10 +32,12 @@ public class ValiParaFilme {
             
             if(this.validacao.containsKey(chave)){
                 String validador = validacao.get(chave);
-                if(!valorParaValidar.matches(validador)){
+                System.out.println("Genero:" + valorParaValidar);
+                if(!Pattern.matches(validador, valorParaValidar)){
                     JOptionPane.showMessageDialog(null, this.mensagemErro[this.contator]);
                     return false;
                 }
+                this.contator++;
             }
         }
         this.contator = 0;
@@ -41,9 +45,9 @@ public class ValiParaFilme {
     }
     
     private void setValiParaFilme(){
-        this.validacao.put("nomeFilme","^[\\w]+[\\s\\w]*$");
-        this.validacao.put("dataLancamento", "^0[0-9]|[12][0-9]|3[01]/0[01-9]|1[0-2]/\\d{4}$");
-        this.validacao.put("generoFilme", "^[\\w]+[;][\\w]*[;]$");
+        this.validacao.put("nomeFilme","^[\\w]+[\\s\\w]$");
+        this.validacao.put("dataLancamento", "^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[0-2])[/]\\d{4}$");
+        this.validacao.put("generoFilme", "^([\\w]+[;])+$");
     }
     
     private void setValoresParaValidar(){

@@ -3,6 +3,8 @@ package com.mycompany.cenaflix.telacadastrofilme;
 //Pacotes do Projeto
 import com.mycompany.cenaflix.modelos.ParaFilmeRecord;
 import com.mycompany.cenaflix.controladores.FilmeControladorDeAcao;
+//Pacotes event
+
 
 public class JFrameCadastro extends javax.swing.JFrame {
 
@@ -30,6 +32,11 @@ public class JFrameCadastro extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         txtGenero = new javax.swing.JTextField();
+        chkAcao = new javax.swing.JCheckBox();
+        chkComedia = new javax.swing.JCheckBox();
+        chkDrama = new javax.swing.JCheckBox();
+        chkFiccao = new javax.swing.JCheckBox();
+        chkSuspense = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,34 +69,90 @@ public class JFrameCadastro extends javax.swing.JFrame {
             }
         });
 
+        txtGenero.setEditable(false);
+
+        chkAcao.setText("Ação");
+        chkAcao.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chkAcaoItemStateChanged(evt);
+            }
+        });
+
+        chkComedia.setText("Comédia");
+        chkComedia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chkComediaItemStateChanged(evt);
+            }
+        });
+        chkComedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkComediaActionPerformed(evt);
+            }
+        });
+
+        chkDrama.setText("Drama");
+        chkDrama.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chkDramaItemStateChanged(evt);
+            }
+        });
+
+        chkFiccao.setText("Ficção");
+        chkFiccao.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chkFiccaoItemStateChanged(evt);
+            }
+        });
+
+        chkSuspense.setText("Suspense");
+        chkSuspense.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chkSuspenseItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(175, Short.MAX_VALUE)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpar)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(189, 189, 189)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDataLancamento, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(chkAcao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkComedia)
+                                .addGap(24, 24, 24)
+                                .addComponent(chkDrama)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkFiccao)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkSuspense)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtDataLancamento)
                             .addComponent(txtGenero))))
                 .addGap(16, 16, 16))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLimpar)
-                .addGap(106, 106, 106))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(165, Short.MAX_VALUE)
@@ -116,7 +179,14 @@ public class JFrameCadastro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkAcao)
+                    .addComponent(chkComedia)
+                    .addComponent(chkDrama)
+                    .addComponent(chkFiccao)
+                    .addComponent(chkSuspense))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -160,6 +230,31 @@ public class JFrameCadastro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void chkAcaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkAcaoItemStateChanged
+        this.filmeControlador.setTxtGenero(evt, this.chkAcao.getText());
+    }//GEN-LAST:event_chkAcaoItemStateChanged
+
+    private void chkComediaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkComediaItemStateChanged
+        this.filmeControlador.setTxtGenero(evt, this.chkComedia.getText());
+    }//GEN-LAST:event_chkComediaItemStateChanged
+
+    private void chkComediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkComediaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkComediaActionPerformed
+
+    private void chkDramaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkDramaItemStateChanged
+        this.filmeControlador.setTxtGenero(evt, this.chkDrama.getText());
+    }//GEN-LAST:event_chkDramaItemStateChanged
+
+    private void chkFiccaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkFiccaoItemStateChanged
+        this.filmeControlador.setTxtGenero(evt, this.chkFiccao.getText());
+    }//GEN-LAST:event_chkFiccaoItemStateChanged
+
+    private void chkSuspenseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkSuspenseItemStateChanged
+        this.filmeControlador.setTxtGenero(evt, this.chkSuspense.getText());
+    }//GEN-LAST:event_chkSuspenseItemStateChanged
+
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -172,6 +267,11 @@ public class JFrameCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JCheckBox chkAcao;
+    private javax.swing.JCheckBox chkComedia;
+    private javax.swing.JCheckBox chkDrama;
+    private javax.swing.JCheckBox chkFiccao;
+    private javax.swing.JCheckBox chkSuspense;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
